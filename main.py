@@ -11,6 +11,35 @@ def save_books(books):
     with open('books.json', 'w', encoding='utf-8') as f:
         json.dump(books, f, ensure_ascii=False, indent=4)
 
+
+# --- НОВАЯ ФУНКЦИЯ ДЛЯ ЭТОЙ ВЕТКИ ---
+def add_book():
+    author = input("Автор: ")
+    title = input("Название: ")
+    
+    try:
+        rating = int(input("Оценка (1-5): "))
+        if not (1 <= rating <= 5):
+            print("Ошибка: Оценка должна быть от 1 до 5")
+            return
+    except ValueError:
+        print("Ошибка: Введите число")
+        return
+
+    date = input("Дата прочтения: ")
+    books = load_books()
+    
+    # Проверка на дубликаты
+    if any(b['title'].lower() == title.lower() and b['author'].lower() == author.lower() for b in books):
+        print("Ошибка: Такая книга уже существует!")
+        return
+
+    books.append({"author": author, "title": title, "rating": rating, "date": date})
+    save_books(books)
+    print("Книга добавлена!")
+
+
+
 def main():
     while True:
         print("\n--- МЕНЮ ---")
@@ -23,6 +52,14 @@ def main():
         choice = input("Выберите действие: ")
         
         if choice == '1':
+
+            add_book() # <--- ЗДЕСЬ МЫ ВЫЗЫВАЕМ ФУНКЦИЮ
+        elif choice == '6':
+            print("Выход...")
+            break
+        else:
+            print("Этот пункт пока не реализован в этой ветке или введен неверный номер.")
+
             pass 
         elif choice == '2':
             pass
@@ -37,6 +74,7 @@ def main():
             break
         else:
             print("Неверный ввод!")
+
 
 if __name__ == "__main__":
     main()
