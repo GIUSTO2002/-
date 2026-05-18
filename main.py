@@ -11,6 +11,7 @@ def save_books(books):
     with open('books.json', 'w', encoding='utf-8') as f:
         json.dump(books, f, ensure_ascii=False, indent=4)
 
+
 # --- НОВАЯ ФУНКЦИЯ ДЛЯ ЭТОЙ ВЕТКИ ---
 def add_book():
     author = input("Автор: ")
@@ -37,6 +38,8 @@ def add_book():
     save_books(books)
     print("Книга добавлена!")
 
+
+
 def main():
     while True:
         print("\n--- МЕНЮ ---")
@@ -49,12 +52,29 @@ def main():
         choice = input("Выберите действие: ")
         
         if choice == '1':
+
             add_book() # <--- ЗДЕСЬ МЫ ВЫЗЫВАЕМ ФУНКЦИЮ
         elif choice == '6':
             print("Выход...")
             break
         else:
             print("Этот пункт пока не реализован в этой ветке или введен неверный номер.")
+
+            pass 
+        elif choice == '2':
+            pass
+        elif choice == '3':
+            pass
+        elif choice == '4':
+            pass
+        elif choice == '5':
+            pass
+        elif choice == '6':
+            print("Выход из программы.")
+            break
+        else:
+            print("Неверный ввод!")
+
 
 if __name__ == "__main__":
     main()
