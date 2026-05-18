@@ -11,6 +11,7 @@ def save_books(books):
     with open('books.json', 'w', encoding='utf-8') as f:
         json.dump(books, f, ensure_ascii=False, indent=4)
 
+
 # --- ФУНКЦИИ ДЛЯ ЭТОЙ ВЕТКИ (СПИСОК И СТАТИСТИКА) ---
 
 def show_books():
@@ -49,10 +50,21 @@ def main():
         print("3. Средняя оценка")
         print("4. Статистика по авторам")
         print("5. Удалить книгу (не реализовано в этой ветке)")
+
+def main():
+    while True:
+        print("\n--- МЕНЮ ---")
+        print("1. Добавить книгу")
+        print("2. Показать все книги")
+        print("3. Средняя оценка")
+        print("4. Статистика по авторам")
+        print("5. Удалить книгу")
+
         print("6. Выход")
         choice = input("Выберите действие: ")
         
         if choice == '1':
+
             print("Этот пункт будет доступен после слияния веток.")
         elif choice == '2':
             show_books() # Вызов функции списка
@@ -63,6 +75,22 @@ def main():
             break
         else:
             print("Неверный ввод или функция недоступна в этой ветке.")
+
+            pass 
+        elif choice == '2':
+            pass
+        elif choice == '3':
+            pass
+        elif choice == '4':
+            pass
+        elif choice == '5':
+            pass
+        elif choice == '6':
+            print("Выход из программы.")
+            break
+        else:
+            print("Неверный ввод!")
+
 
 if __name__ == "__main__":
     main()
